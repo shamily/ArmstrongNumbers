@@ -15,7 +15,7 @@ Let's say that we need to generate Armstrong Numbers from 1 to K (of length N di
 3. Calculate power of each digit
 4. Sum up those powers
 5. If this sum is equal to *i* - add it to the result list
-
+ 
 Such approach works reasonable time only for int numbers (N<10). For long''s (N<20) it works more than a night, which is not OK.
 
 ## Better approach - multi-sets
@@ -44,7 +44,7 @@ There is another interesting idea of bruteforce approach improvement.
 4. Add to some hash the following pair {p-i, i}. For example, for *i*=725, *p*=7^7+2^7+5^7=901796. We add pair {901071, 725}.
 5. Generate all integers *i* of the first part without leading zeros (in our example there will be integers from 1000 to 9999).
 6. Calculate *p* equal to sum of digits in power of *N*.
-7. Check if hash has a key of {i*10^(N/2)-p}. For example, *i*=1741, thus *p*=1^7 + 7^7 + 4^7 + 1^7=839929. We look for key (1741000 - 839929) = (901071). OMG! It exists!!!
+7. Check if hash has a key of (i\*10^(N/2)-p). For example, *i*=1741, thus *p*=1^7 + 7^7 + 4^7 + 1^7=839929. We look for key (1741000 - 839929) = (901071). OMG! It exists!!!
 8. In case that key exists we unite the Armstrong number from two parts and add it to the result list. 1741000 + 725 = 1741725
 
 One addition, is that we cannot store simply (key, value), we need to store multiple values, for example to be able to generate 370 and 371.
