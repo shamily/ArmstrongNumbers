@@ -52,6 +52,9 @@ There is another interesting idea of bruteforce approach improvement.
 
 One addition, is that we cannot store simply (key, value), we need to store multiple values, for example to be able to generate 370 and 371.
 
+Implementation: [ArmstrongNumbersHash.java](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersHash.java)
+
+
 ## Benchmarking
 
 Let's compare the algorithms performance for different numbers of length *N*. I did the tests with my MacBook Pro.
