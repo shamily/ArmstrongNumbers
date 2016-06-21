@@ -48,3 +48,19 @@ There is another interesting idea of bruteforce approach improvement.
 8. In case that key exists we unite the Armstrong number from two parts and add it to the result list. 1741000 + 725 = 1741725
 
 One addition, is that we cannot store simply (key, value), we need to store multiple values, for example to be able to generate 370 and 371.
+
+## Benchmarking
+
+Let's compare the algorithms performance for different numbers of length *N*. I did the tests with my MacBook Pro.
+
+| Algorithm   | N           | Performance  | Comments |
+| ------------- |:-------------:| :-----:| -----|
+| Brute Force   | int (N<10)  | seconds | |
+| Brute Force   | long (N<20) |   ~200 years | Just wait! |
+| Optimized - Hash | int (N<10)  |    50 ms | |
+| Optimized - Hash | long (N<20)  |    minutes | Hash consumes quite a lot of memory and if we leave algorithm as is it will throw OutOfMemory |
+| Optimized - Multi-set | int (N<10)  |    11 ms | before all the optimizations: 15 ms |
+| Optimized - Multi-set | long (N<10)  |    ~550 ms | before optimizations ~ 1s |
+| Optimized - Multi-set | BigInteger (N<40)  |    ~ 0.5 hours | All 88 decimal Armstrong numbers   |
+
+Clear win of the multi-set algorithm!
