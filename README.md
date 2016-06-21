@@ -31,8 +31,8 @@ We may build an algorighm basing on this consideration.
 5. If so - add the number to the result list
 
 Implementation of the algorithm with optimizations:
-* For long: (ArmstrongNumbersLong)[https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersLong.java]
-* For BigInteger: (ArmstrongNumbersBigInteger)[https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersBigInteger.java]
+* For long: [ArmstrongNumbersLong.java](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersLong.java)
+* For BigInteger: [ArmstrongNumbersBigInteger](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersBigInteger.java)
 
 ## Another approach - Hash
 
