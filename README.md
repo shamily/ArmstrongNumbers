@@ -55,8 +55,8 @@ Let's compare the algorithms performance for different numbers of length *N*. I 
 
 | Algorithm   | N           | Performance  | Comments |
 | ------------- |:-------------:| :-----:| -----|
-| Brute Force   | int (N<10)  | seconds | |
-| Brute Force   | long (N<20) |   ~200 years | Just wait! |
+| Brute Force   | int (N<10)  | ~55 seconds | |
+| Brute Force   | long (N<20) |   few thousand years | Just wait! |
 | Optimized - Hash | int (N<10)  |    50 ms | |
 | Optimized - Hash | long (N<20)  |    minutes | Hash consumes quite a lot of memory and if we leave algorithm as is it will throw OutOfMemory |
 | Optimized - Multi-set | int (N<10)  |    11 ms | before all the optimizations: 15 ms |
