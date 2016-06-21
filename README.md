@@ -18,6 +18,9 @@ Let's say that we need to generate Armstrong Numbers from 1 to K (of length N di
  
 Such approach works reasonable time only for int numbers (N<10). For long''s (N<20) it works more than a night, which is not OK.
 
+Implementation of the algorithm: [ArmstrongNumbersBruteforce.java](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersBruteforce.java)
+
+
 ## Better approach - multi-sets
 
 We may note that for each multi-set of digits, like [1, 1, 2, 4, 5, 7, 7] there is only one sum of powers, which in its turn may either be or be not represented by the digits from set. In the example 1^7 + 1^7 + 2^7 + 4^7 + 5^7 + 7^7 + 7^7 = 1741725, which can be represented by the digits and thus is an Armstrong number.
