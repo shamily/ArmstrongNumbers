@@ -54,7 +54,7 @@ We may build an algorighm basing on this consideration.
 4. Check if it''s possible to represent the number we got on step 4 with the digits from the multi-set
 5. If so - add the number to the result list
 
-**Complexity assestment** The number of cases calculated for each length *N* is equal to the number of combinations (*N* + 9, 9) = (*N*+9)!/(9!*N*!). Thus for all *N*s less than 10 we will generate 92377 cases. For *N*<20: 20.030.009 cases. 
+**Complexity assestment** The number of cases calculated for each length *N* is equal to the number of combinations (*N* + 9, 9) = (*N*+9)!/(9!*N*!). Thus for all *N*s less than 10 we will generate 92,377 cases. For *N*<20: 20,030,009 cases. 
 
 Implementation: [ArmstrongNumbersMultiSetLong.java](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersMultiSetLong.java)
 
