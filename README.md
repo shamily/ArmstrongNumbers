@@ -2,24 +2,28 @@
 
 ## What is that all about?
 
-Armstrong number (aka Narcissistic number) of length N digits is a number which is equal to the sum of its digits each in power of *N*. For example: 153 = 1^3 + 5^3 + 3^3 = 3 + 125 + 27 = 153
+The task is to generate Armstrong Numbers from 1 up to the length of *N* decimal digits.
+
+Armstrong number (aka Narcissistic number) of length *N* digits is a number which is equal to the sum of its digits each in power of *N*. For example: 153 = 1^3 + 5^3 + 3^3 = 3 + 125 + 27 = 153
 
 More info at [wiki](https://en.wikipedia.org/wiki/Narcissistic_number)
 
-## Why do we need to optimize?
+## Brute force algorithm
 
-Let's say that we need to generate Armstrong Numbers from 1 to K (of length N digits). There is an obvious bruteforce algorithms that:
+There is an obvious bruteforce algorithms that:
 
+0. Pre-generation of all powers *i^j*, where i is a digits, and j is possible length from 1 to *N* - this is necessary for all solutions
 1. For each integer *i* from 1 to *K*
 2. Divides *i* by digits
 3. Calculate power of each digit
 4. Sum up those powers
 5. If this sum is equal to *i* - add it to the result list
  
-Such approach works reasonable time only for int numbers (N<10). For long''s (N<20) it works more than a night, which is not OK.
+Implementation: [ArmstrongNumbersBruteforce.java](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersBruteforce.java)
 
-Implementation of the algorithm: [ArmstrongNumbersBruteforce.java](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersBruteforce.java)
+It can be improved by parallel calculation of sum of digit powers to the number generation.
 
+Implementation: [ArmstrongNumbersBruteforceOpt.java](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersBruteforceOpt.java)
 
 ## Better approach - multi-sets
 
@@ -59,14 +63,12 @@ Implementation: [ArmstrongNumbersHash.java](https://github.com/shamily/Armstrong
 
 Let's compare the algorithms performance for different numbers of length *N*. I did the tests with my MacBook Pro.
 
-| Algorithm   | N           | Performance  | Comments |
-| ------------- |:-------------:| :-----:| -----|
-| Brute Force   | int (N<10)  | ~55 seconds | |
-| Brute Force   | long (N<20) |   few thousand years | Just wait! |
-| Optimized - Hash | int (N<10)  |    50 ms | |
-| Optimized - Hash | long (N<20)  |    minutes | Hash consumes quite a lot of memory and if we leave algorithm as is it will throw OutOfMemory |
-| Optimized - Multi-set | int (N<10)  |    11 ms | before all the optimizations: 15 ms |
-| Optimized - Multi-set | long (N<10)  |    ~550 ms | before optimizations ~ 1s |
-| Optimized - Multi-set | BigInteger (N<40)  |    ~ 0.5 hours | All 88 decimal Armstrong numbers   |
+| Algorithm   | int (N<10) | long (N<20) | BigInteger (N<40)  | Comments |
+| ------------- |:-------------:|:-----:|:-----:|-----|
+| Brute Force            |  ~55 seconds | few thousand years | N/A | Just wait! |
+| Improved Brute Force   | ~3.7 s       |  ~300 years        | N/A |            |
+| Hash Approach          |  50 ms       | minutes            | N/A | Hash consumes quite a lot of memory and if we leave algorithm as is it will throw OutOfMemory |
+| Multi-set Approach     | 11 ms        | ~550 ms            |~ 0.5 hours |     |
+
 
 Clear win of the multi-set algorithm!
