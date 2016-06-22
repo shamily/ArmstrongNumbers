@@ -87,7 +87,7 @@ public class ArmstrongNumbersMultiSetLongOpt {
             minPow = (long) Math.pow(10, N - 1);
             maxPow = (long) Math.pow(10, N);
 
-            search(10 - 1, N, 0);
+            search(9, N, 0);
         }
 
         Collections.sort(results);
