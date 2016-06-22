@@ -4,12 +4,12 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-public class ArmstrongNumbersBigInteger {
-    static final int BASE = 10; // decimal base - cannot be changed, since I use BigInteger.TEN
-    static final int MAX_N = 50;
-    static private BigInteger[][] pows = new BigInteger[BASE][MAX_N];
+public class ArmstrongNumbersMultiSetBigIntegerOpt {
+    private static final int BASE = 10; // decimal base - cannot be changed, since I use BigInteger.TEN
+    private static final int MAX_N = 50;
+    private static BigInteger[][] pows = new BigInteger[BASE][MAX_N];
 
-    public static void genPows() {
+    private static void genPows() {
         for (int i = 0; i < pows.length; i++) {
             BigInteger p = BigInteger.ONE;
             for (int j = 0; j < pows[i].length; j++) {
@@ -19,15 +19,15 @@ public class ArmstrongNumbersBigInteger {
         }
     }
 
-    static int N; // Current length
-    static int[] digits = new int[BASE];
-    static int[] pd = new int[BASE];
+    private static int N; // Current length
+    private static int[] digits = new int[BASE];
+    private static int[] pd = new int[BASE];
 
-    static List<BigInteger> results = new ArrayList<>();
-    static BigInteger maxPow;
-    static BigInteger minPow;
+    private static List<BigInteger> results = new ArrayList<>();
+    private static BigInteger maxPow;
+    private static BigInteger minPow;
 
-    public static void preparePow(int N) {
+    private static void preparePow(int N) {
         minPow = BigInteger.ONE;
         for (int i = 0; i < N-1; i++) {
             minPow = minPow.multiply(BigInteger.TEN);
@@ -35,7 +35,7 @@ public class ArmstrongNumbersBigInteger {
         maxPow = minPow.multiply(BigInteger.TEN);
     }
 
-    public static boolean checkWithChars(BigInteger pow) {
+    private static boolean checkWithChars(BigInteger pow) {
         int compareMax = pow.compareTo(maxPow);
         if (compareMax >= 0 ) return false;
         int compareMin = pow.compareTo(minPow);
@@ -61,7 +61,7 @@ public class ArmstrongNumbersBigInteger {
         return true;
     }
 
-    public static boolean check(BigInteger pow) {
+    private static boolean check(BigInteger pow) {
         int compareMax = pow.compareTo(maxPow);
         if (compareMax >= 0 ) return false;
         int compareMin = pow.compareTo(minPow);
@@ -88,7 +88,7 @@ public class ArmstrongNumbersBigInteger {
         return true;
     }
 
-    public static void search(int digit, int unused, BigInteger pow) {
+    private static void search(int digit, int unused, BigInteger pow) {
         int compareMax = pow.compareTo(maxPow);
         if (compareMax >= 0 ) return;
 

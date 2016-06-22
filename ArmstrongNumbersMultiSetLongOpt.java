@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ArmstrongNumbersLong {
+public class ArmstrongNumbersMultiSetLongOpt {
 
-    static int N; // Current length
-    static long[][] pows = new long[10][20];
+    private static int N; // Current length
+    private static long[][] pows = new long[10][20];
 
-    public static void genPows() {
+    private static void genPows() {
         for (int i = 0; i < pows.length; i++) {
             long p = 1;
             for (int j = 0; j < pows[i].length; j++) {
@@ -17,20 +17,20 @@ public class ArmstrongNumbersLong {
         }
     }
 
-    static final int BASE = 10; // decimal base
-    static int[] digits = new int[BASE];
-    static int[] pd = new int[BASE];
+    private static final int BASE = 10; // decimal base
+    private static int[] digits = new int[BASE];
+    private static int[] pd = new int[BASE];
 
-    static List<Long> results = new ArrayList<>();
-    static long maxPow;
-    static long minPow;
+    private static List<Long> results = new ArrayList<>();
+    private static long maxPow;
+    private static long minPow;
 
-    public static void preparePow(int N) {
+    private static void preparePow(int N) {
         minPow = (long) Math.pow(10, N - 1);
         maxPow = (long) Math.pow(10, N);
     }
 
-    public static boolean check(long pow) {
+    private static boolean check(long pow) {
         if (pow >= maxPow) return false;
         if (pow < minPow) return false;
 
@@ -52,7 +52,7 @@ public class ArmstrongNumbersLong {
         return true;
     }
 
-    public static void search(int digit, int unused, long pow) {
+    private static void search(int digit, int unused, long pow) {
         if (pow >= maxPow) return;
 
         if (digit == -1) {
@@ -80,23 +80,23 @@ public class ArmstrongNumbersLong {
         }
     }
 
-        public static void main(String[] args) {
-            Long tStart = System.currentTimeMillis();
+    public static void main(String[] args) {
+        Long tStart = System.currentTimeMillis();
 
-            genPows();
-            for (N = 0; N < 10; N++) {
-                preparePow(N);
-                search(BASE - 1, N, 0);
-            }
-
-            Collections.sort(results);
-
-            Long tFinish = System.currentTimeMillis();
-
-            System.out.println("Time  = " + (tFinish - tStart));
-            System.out.println(String.format("Used JVM Memory: %.3f Mb", (double) (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1048576));
-
-            System.out.println(results.size());
-            System.out.println(results);
+        genPows();
+        for (N = 0; N < 10; N++) {
+            preparePow(N);
+            search(BASE - 1, N, 0);
         }
+
+        Collections.sort(results);
+
+        Long tFinish = System.currentTimeMillis();
+
+        System.out.println("Time  = " + (tFinish - tStart));
+        System.out.println(String.format("Used JVM Memory: %.3f Mb", (double) (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1048576));
+
+        System.out.println(results.size());
+        System.out.println(results);
+    }
 }
