@@ -1,10 +1,10 @@
-# Armstrong Numbers - Efficient Generation Algorithms
+# Armstrong Numbers - Fast Algorithms
 
 ## What is that all about?
 
 The task is to generate Armstrong Numbers from 1 up to the length of *N* decimal digits.
 
-Armstrong number (aka Narcissistic number) of length *N* digits is a number which is equal to the sum of its digits each in power of *N*. For example: 153 = 1^3 + 5^3 + 3^3 = 3 + 125 + 27 = 153
+Armstrong number (aka *Narcissistic number*) of length *N* digits is a number which is equal to the sum of its digits each in power of *N*. For example: 153 = 1^3 + 5^3 + 3^3 = 3 + 125 + 27 = 153
 
 More info at [wiki](https://en.wikipedia.org/wiki/Narcissistic_number)
 
@@ -12,7 +12,7 @@ More info at [wiki](https://en.wikipedia.org/wiki/Narcissistic_number)
 
 There is an obvious bruteforce algorithms that:
 
-0. Pre-generation of all powers *i^j*, where i is a digits, and j is possible length from 1 to *N* - this is necessary for all solutions
+0. Pre-generation of all powers *i^j*, where *i* is a digits, and *j* is possible length from 1 to *N* - this is necessary for all solutions
 1. For each integer *i* from 1 to *K*
 2. Divides *i* by digits
 3. Calculate power of each digit
@@ -32,7 +32,7 @@ There is another interesting idea of bruteforce approach improvement.
 1. Divide a number for two equal parts. In case of an odd *N* first part will be a bit longer. For example, if *N*=7, the number will be divide like XXXXYYY, where XXXX the first part (4 decimal digits), and YYY the second part with 3 digits.
 2. Generate all integers *i* of the second part (in our example there will be integers from 001 to 999).
 3. Calculate *p* equal to sum of digits in power of *N*.
-4. Add to some hash the following pair {p-i, i}. For example, for *i*=725, *p*=7^7+2^7+5^7=901796. We add pair {901071, 725}.
+4. Add to some hash the following pair *{p-i, i}*. For example, for *i*=725, *p*=7^7+2^7+5^7=901796. We add pair {901071, 725}.
 5. Generate all integers *i* of the first part without leading zeros (in our example there will be integers from 1000 to 9999).
 6. Calculate *p* equal to sum of digits in power of *N*.
 7. Check if hash has a key of (i\*10^(N/2)-p). For example, *i*=1741, thus *p*=1^7 + 7^7 + 4^7 + 1^7=839929. We look for key (1741000 - 839929) = (901071). OMG! It exists!!!
@@ -50,7 +50,7 @@ We may build an algorighm basing on this consideration.
 
 1. For each number length from 1 to *N*
 2. Generate all possible multi-sets of *N* digits
-3. For each multi-set calculate sum of digits^N
+3. For each multi-set calculate sum of digits^*N*
 4. Check if it''s possible to represent the number we got on step 4 with the digits from the multi-set
 5. If so - add the number to the result list
 
