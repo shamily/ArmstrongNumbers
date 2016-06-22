@@ -66,13 +66,13 @@ With optimizations:
 
 Let's compare the algorithms performance for different numbers of length *N*. I did the tests with my MacBook Pro.
 
-| Algorithm   | int (N<10) | long (N<20) | BigInteger (N<40)  | Comments |
-| ------------- |:-------------:|:-----:|:-----:|-----|
-| Brute Force            |  ~55 seconds | few thousand years | N/A | Just wait! |
-| Improved Brute Force   | ~3.7 s       |  ~300 years        | N/A |            |
-| Hash Approach          |  50 ms       | minutes            | N/A | Hash consumes quite a lot of memory and if we leave algorithm as is it will throw OutOfMemory for N<20 |
-| Multi-set Approach     | 15 ms        | ~1.1 s            | ~ 1 hour |     |
-| Multi-set Improved     | 11 ms        | ~550 ms            |~ 0.5 hours |     |
-
+| Algorithm   | int (N<10) | long (N<20) | BigInteger (N<40)  | 
+| ------------- |:-------------:|:-----:|:-----:|
+| Brute Force            |  ~55 seconds | few thousand years | N/A |
+| Improved Brute Force   | ~3.7 s       |  ~300 years        | N/A |
+| Hash Approach          |  50 ms       | OutOfMemoryException | N/A | 
+| Multi-set Approach     | 15 ms        | ~1.1 s            | N/A | 
+| Multi-set Improved     | 11 ms        | ~550 ms            |N/A | 
+| Multi-set Improved BigInteger  | ~100 ms | ~5.5 s |~ 0.5 hours |
 
 Clear win of the multi-set algorithm!
