@@ -25,23 +25,7 @@ It can be improved by parallel calculation of sum of digit powers to the number 
 
 Implementation: [ArmstrongNumbersBruteforceOpt.java](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersBruteforceOpt.java)
 
-## Better approach - multi-sets
-
-We may note that for each multi-set of digits, like [1, 1, 2, 4, 5, 7, 7] there is only one sum of powers, which in its turn may either be or be not represented by the digits from set. In the example 1^7 + 1^7 + 2^7 + 4^7 + 5^7 + 7^7 + 7^7 = 1741725, which can be represented by the digits and thus is an Armstrong number.
-
-We may build an algorighm basing on this consideration.
-
-1. For each number length from 1 to N
-2. Generate all possible multi-sets of N digits
-3. For each multi-set calculate sum of digits^N
-4. Check if it''s possible to represent the number we got on step 4 with the digits from the multi-set
-5. If so - add the number to the result list
-
-Implementation of the algorithm with optimizations:
-* For long: [ArmstrongNumbersLong.java](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersLong.java)
-* For BigInteger: [ArmstrongNumbersBigInteger](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersBigInteger.java)
-
-## Another approach - Hash
+## Hash Approach - Divide At Impera
 
 There is another interesting idea of bruteforce approach improvement. 
 
@@ -57,6 +41,23 @@ There is another interesting idea of bruteforce approach improvement.
 One addition, is that we cannot store simply (key, value), we need to store multiple values, for example to be able to generate 370 and 371.
 
 Implementation: [ArmstrongNumbersHash.java](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersHash.java)
+
+## Multi Sets Approach
+
+We may note that for each multi-set of digits, like [1, 1, 2, 4, 5, 7, 7] there is only one sum of powers, which in its turn may either be or be not represented by the digits from set. In the example 1^7 + 1^7 + 2^7 + 4^7 + 5^7 + 7^7 + 7^7 = 1741725, which can be represented by the digits and thus is an Armstrong number.
+
+We may build an algorighm basing on this consideration.
+
+1. For each number length from 1 to N
+2. Generate all possible multi-sets of N digits
+3. For each multi-set calculate sum of digits^N
+4. Check if it''s possible to represent the number we got on step 4 with the digits from the multi-set
+5. If so - add the number to the result list
+
+Implementation of the algorithm with optimizations:
+* For long: [ArmstrongNumbersMultiSetLongOpt.java](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersMultiSetLongOpt.java)
+* For BigInteger: [ArmstrongNumbersMultiSetBigIntegerOpt.java](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersMultiSetBigIntegerOpt.java)
+
 
 
 ## Benchmarking
