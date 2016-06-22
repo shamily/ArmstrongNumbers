@@ -68,11 +68,11 @@ Let's compare the algorithms performance for different numbers of length *N*. I 
 
 | Algorithm   | int (N<10) | long (N<20) | BigInteger (N<40)  | 
 | ------------- |:-------------:|:-----:|:-----:|
-| Brute Force            |  ~55 seconds | few thousand years | N/A |
-| Improved Brute Force   | ~3.7 s       |  ~300 years        | N/A |
-| Hash Approach          |  50 ms       | OutOfMemoryException | N/A | 
-| Multi-set Approach     | 15 ms        | ~1.1 s            | N/A | 
-| Multi-set Improved     | 11 ms        | ~550 ms            |N/A | 
-| Multi-set Improved BigInteger  | ~100 ms | ~5.5 s |~ 0.5 hours |
+| [Brute Force](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersBruteforce.java)            |  ~55 seconds | few thousand years | N/A |
+| [Improved Brute Force](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersBruteforceOpt.java)   | ~3.7 s       |  ~300 years        | N/A |
+| [Hash Approach](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersHash.java)          |  50 ms       | OutOfMemoryException | N/A | 
+| [Multi-set Approach](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersMultiSetLong.java)     | 15 ms        | ~1.1 s            | N/A | 
+| [Multi-set Improved](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersMultiSetLongOpt.java)     | 11 ms        | ~550 ms            |N/A | 
+| [Multi-set Improved BigInteger](https://github.com/shamily/ArmstrongNumbers/blob/master/ArmstrongNumbersMultiSetBigIntegerOpt.java)  | ~100 ms | ~5.5 s |~ 0.5 hours |
 
 Clear win of the multi-set algorithm!
